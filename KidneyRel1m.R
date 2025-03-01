@@ -1,3 +1,6 @@
+# 2/27/2025
+# increase sizes of axis labels and plot title by modifying the theme's axis text and title, and centering the heading and increasing its font size
+
 # Load required packages
 library(ggplot2)
 library(dplyr)
@@ -49,7 +52,14 @@ KidneyRel1m <- ggplot(PFHICom, aes(x = Group, y = KidneyRel, fill = Group)) +
   
   scale_fill_brewer(palette = "Set2", name = "Group") + # Colorful palette
   theme_bw() +
-  theme(legend.position = "none")
+  theme(legend.position = "none") +
+
+  theme(
+    axis.text = element_text(size = 14), # increase tick label size
+    axis.title = element_text(size = 16), # increase axis title size
+    plot.title = element_text(size = 18, hjust = 0.5) # increase plot title size
+  )
+
 
 # Save the plot as a PNG file
 ggsave(filename = "KidneyRel1m.png", plot = KidneyRel1m, width = 8, height = 6, dpi = 300)
